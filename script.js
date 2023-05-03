@@ -5,7 +5,6 @@
     var app = function app(){
     
     var dom = new DOM('[data-js="identifi"]');
-    var cars = [];
 
     return{ 
         init: function init(){
@@ -15,7 +14,7 @@
 
         ajaxCompany: function ajaxCompany(){
             var company = new XMLHttpRequest()
-            company.open('get', '/desafio29/company.json');
+            company.open('get', 'company.json');
             company.send('');
             company.addEventListener('readystatechange', this.statusRequest, false);
         },
@@ -32,7 +31,7 @@
         },
 
         eventButton: function eventButton(){
-            var button = new DOM('#iRegister');
+            var button = new DOM('.iRegister');
             button.on(this.elemValue);
         },
 
@@ -47,7 +46,31 @@
             var newRow = doc.querySelector('tbody').appendChild(doc.createElement("tr"));
             for(var index = 0; index < doc.querySelectorAll('[data-js="identifi"]').length; index++){
                 newRow.appendChild(this.returnElemDom(inputsVal[index]))
-            };
+            };            
+            this.EventRemovButton((this.addRemovButton(newRow).className));
+        }, 
+
+        addRemovButton: function(newRow){
+            var tdRemov = doc.createElement('td');
+            tdRemov.innerHTML = 'Remove';
+            newRow.appendChild(tdRemov);    
+            tdRemov.setAttribute('class', 'Remov' + this.createClassNumber())
+            return tdRemov
+        },
+
+        createClassNumber: function(){
+            var classNumber = Math.ceil(Math.random() * 100)
+            return classNumber
+        },
+
+        EventRemovButton: function EventRemovButton(identificator){
+            var DOMIdenti = '.'+ identificator;
+            var EventTdRemov = new DOM (DOMIdenti);
+            EventTdRemov.on(this.removeRow);
+        },
+
+        removeRow: function removeRow(){
+            this.parentNode.remove()
         },
 
         returnElemDom: function returnElemDom(item){
