@@ -13,7 +13,7 @@
 
         ajaxCompany: function ajaxCompany(){
             var company = new XMLHttpRequest()
-            company.open('get', '/desafio29/company.json');
+            company.open('get', 'company.json');
             company.send('');
             company.addEventListener('readystatechange', this.statusRequestCompany, false);
         },
@@ -29,7 +29,7 @@
         },
 
         eventButton: function eventButton(){
-            var button = new DOM('#iRegister');
+            var button = new DOM('.iRegister');
             button.on(this.elemValue);
         },
 
