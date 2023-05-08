@@ -4,18 +4,61 @@
 }
 
 header{
-    background-color: #141414;
+    /*background-color: #141414;*/
     padding: 10px 5px 10px 5px;
+    margin-bottom: 40px;
 }
 
 header ul{
     list-style: none;
     display: flex;
     justify-content: space-between;
-
 }
 
 header ul li{color: white;}
+
+.section-start{
+    padding: 20px 0px 20px 0px;
+    background-image: url(background-image/Picsart_23-04-20_14-55-16-176.png);
+    background-position: center left;
+}
+
+.section-start .div-begin{
+    position: relative;
+    height: 350px;
+    width: 90vw;
+    margin: auto;
+    border: 1px solid #ffffffa7;
+}
+
+.section-start .div-begin .div-button{
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid #ffffff;
+    background-color: black;
+}
+
+.section-start .div-begin .div-button .title-cadast{
+    color: white;
+    padding: 10px 30px 10px 30px;
+}
+.section-start .div-begin .div-button .title-cadast:hover{
+    border: 5px solid black;
+    background-color: white;
+    color: black;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.section-form form{margin-top: 40px;}
+
+.section-form form input{display: block;}
+
+.section-form form label{color: white;}
+
+.section-form form .iRegister{background-color: white;}
 
 main, body{background-color: #000000;}
 
