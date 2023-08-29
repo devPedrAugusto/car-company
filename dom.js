@@ -5,7 +5,6 @@ function DOM(elements){
 
 var methodOn = function on(e){
     e.preventDefault();
-    console.log('Você clicou que eu vi');
 };
 
 DOM.prototype.on = function on(event){
@@ -24,8 +23,8 @@ DOM.prototype.get = function get(item, index){
     return JSON.parse(item.responseText)[index];
 };            
 
-DOM.prototype.forEach = function forEach(){
-    return Array.prototype.forEach.apply(this.element, arguments)
+DOM.prototype.forEach = function clearForEach(callback){
+    this.elements.forEach(item => callback(item))
 }
 
 DOM.prototype.map = function map(){

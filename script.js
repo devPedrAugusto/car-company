@@ -22,6 +22,7 @@
             if(!app().isReady.call(this))
                 return;    
             doc.querySelector('#li-name').innerHTML = dom.get(this, "name");
+            doc.querySelector('#li-desenvolvedor').innerHTML = `desenvolvido por ${dom.get(this, "desenvolvedor")}`;
         },
 
         isReady: function isReady(){
@@ -35,9 +36,16 @@
 
         elemValue: function elemValue(){
             var inputsVal = []
-            doc.querySelectorAll('[data-js="identifi"]').forEach(function(item){
+            dom.forEach(function elemValue(item){
                 inputsVal.push(item.value)
             }); app().methodPost(inputsVal);
+            app().clearForm()
+        },
+
+        clearForm: function cleanForm(){
+            dom.forEach(function clearForEach(item){
+                item.value = ''
+            })
         },
 
         methodPost: function methodPost(inputsVal){
@@ -61,13 +69,18 @@
         },
 
         createElements: function createElements(carsRequest){
+            app().visibilityTable()
             var newRow = doc.querySelector('tbody').appendChild(doc.createElement("tr"));
             var Car = JSON.parse(carsRequest.responseText)[(JSON.parse(carsRequest.responseText).length) -1];
             for (const key in Car) {
                     const element = Car[key];
                     newRow.appendChild(this.returnElemDom(element))
             }
-            this.EventRemovButton((this.addRemovButton(newRow).className));
+            this.EventRemovButton((this.addRemovButton(newRow, Car.plate).className));
+        },
+
+        visibilityTable: function visibilityTable(){
+            doc.querySelector('[data-js="tableCar"]').style.visibility = 'visible'
         },
 
         returnElemDom: function returnElemDom(item){
@@ -86,30 +99,28 @@
         isaPicture: function isaPicture(item){
             var element = doc.createElement('img');
             element.setAttribute('src', item)
+            element.setAttribute('class', 'carImg')
             return element;
         },
 
-        addRemovButton: function(newRow){
+        addRemovButton: function(newRow, carPlate){
             var tdRemov = doc.createElement('td');
-            tdRemov.innerHTML = 'Remove';
             newRow.appendChild(tdRemov);    
-            tdRemov.setAttribute('class', 'Remov' + this.createClassNumber())
+            tdRemov.setAttribute('class', (carPlate, 'remove'))
             return tdRemov
         },
 
-        createClassNumber: function(){
-            var classNumber = Math.ceil(Math.random() * 100)
-            return classNumber
-        },
-
         EventRemovButton: function EventRemovButton(identificator){
-            var DOMIdenti = '.'+ identificator;
-            var EventTdRemov = new DOM (DOMIdenti);
+            var EventTdRemov = new DOM ('.' + identificator);
             EventTdRemov.on(this.removeRow);
         },
 
         removeRow: function removeRow(){
-            this.parentNode.remove()
+            this.parentNode.remove();
+            var postDelete = new XMLHttpRequest();
+            postDelete.open('POST', 'http://localhost:3000/car');
+            postDelete.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            postDelete.send(`plate=${this.className}`);
         },
 
     }
