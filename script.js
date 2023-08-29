@@ -22,7 +22,7 @@
             if(!app().isReady.call(this))
                 return;    
             doc.querySelector('#li-name').innerHTML = dom.get(this, "name");
-            doc.querySelector('#li-desenvolvedor').innerHTML = `desenvolvido por ${dom.get(this, "desenvolvedor")}`;
+            doc.querySelector('#li-desenvolvedor').innerHTML = dom.get(this, "desenvolvedor");
         },
 
         isReady: function isReady(){
