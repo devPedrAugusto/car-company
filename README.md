@@ -2,13 +2,17 @@
 
 Formulário de cadastro de automoveis
 
-https://github.com/devPedrAugusto/Mercedez-Company/assets/96143899/ee60f7c9-aa08-4166-9773-959b0e3c63ea
+
+
+https://github.com/devPedrAugusto/Mercedez-Company/assets/96143899/120625eb-fd9e-47c9-aee3-6607f7ae81c2
+
+
 
 # Funcionalidades do projeto
 
 - `Funcionalidade 1`: Cadastrar carros
-- `Funcionalidade 2`: transpassar dados para um componente visivel
-- `Funcionalidade 3`: Separar os cadastrados por suas características dentro de uma tabela
+- `Funcionalidade 2`: Transpassar dados para um componente visivel
+- `Funcionalidade 3`: Separar os carros e suas características dentro de uma tabela
   
 # Acesso ao projeto
 
