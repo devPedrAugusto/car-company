@@ -2,10 +2,7 @@
 
 Formulário de cadastro de automoveis
 
-
-<h4 align="center"> 
-    Visite o meu projeto [clicando aqui](https://mercedez-company.vercel.app/).
-</h4>
+https://github.com/devPedrAugusto/Mercedez-Company/assets/96143899/ee60f7c9-aa08-4166-9773-959b0e3c63ea
 
 # Funcionalidades do projeto
 
@@ -21,7 +18,7 @@ Formulário de cadastro de automoveis
 
 - **certifique se de ter o node.js**
 - **Abra o arquivo no terminal**
-- **Acesse a pasta server pelo terminal**
+- **Acesse a pasta server**
 - **E inicie o servidor remoto com esse codigo (node app.js)**
 
 # Tecnologias utilizadas
